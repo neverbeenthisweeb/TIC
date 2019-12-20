@@ -10,6 +10,13 @@ if __name__=="__main__":
 	current_scroll_time = 0
 	driver = webdriver.Chrome()
 	driver.get(url=URL)
+
+	while current_scroll_time < SCROLL_TIMES:
+		driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+		current_scroll_time+=1
+		time.sleep(2)
+
+
 	source = driver.page_source
 	soup = BeautifulSoup(source, 'html.parser')
 	# print(soup)
@@ -17,12 +24,5 @@ if __name__=="__main__":
 
 	for img in images:
 		print(img['data-image-url'])
-
-	# with open("html_parsed.txt", "w") as f:
-	# 	f.write(img)
-	# while current_scroll_time < SCROLL_TIMES:
-	# 	driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-	# 	current_scroll_time+=1
-	# 	time.sleep(2)
 
 	driver.quit()
