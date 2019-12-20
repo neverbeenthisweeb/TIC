@@ -1,5 +1,5 @@
 todo:
 
 
-1) create curl mechanism for download
-2) decide folder structure for storage
+1) Apply config parsing for URL and scrolling times
+2) enhance modularity
